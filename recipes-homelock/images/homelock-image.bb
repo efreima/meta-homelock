@@ -2,7 +2,7 @@ require /space/schoolspace/ROOT_HLOS/poky/meta/recipes-core/images/core-image-mi
 
 SUMMARY = "hlOS USER INTERFACE"
 DESCRIPTION = "User interace for homelock functions"
-LICENSE = "OPEN"
+LICENSE = "MIT"
 GUI_FILES = "../../hLOSGUI/include/*"
 
 #inherit core-image
