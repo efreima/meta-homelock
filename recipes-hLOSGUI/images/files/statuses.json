@@ -1,0 +1,14 @@
+{
+    "name": "Lock Information",
+    "description": "Information on the current status of the lock/homelockOS",
+    "version": "0.0.0",
+    "private": 1,
+    "author": "Anonymous",
+    "contributors": [
+        "Someone"
+    ],
+    "lock": {
+        "locked": 1,
+        "canlock": 0
+    }
+}

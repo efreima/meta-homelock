@@ -13,6 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from tkinter import messagebox
 import threading
 import os
+import json
 def return_pass():
     with open('config.txt', 'r') as reader:
         data = reader.readlines()
@@ -120,26 +121,67 @@ class Ui_MainWindow(object):
         self.door.clicked.connect(self.changeStatus)
         self.device.clicked.connect(self.redirect_password)
         self.network.clicked.connect(self.redirect_password2)
+        
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.door.setText(_translate("MainWindow", "Press to Lock/Unlock"))
         self.device.setText(_translate("MainWindow", "Device Control"))
-        self.lockStatus.setText(_translate("MainWindow", "Door Unlocked"))
+        self.lockStatus.setText(_translate("MainWindow", " "))
         self.network.setText(_translate("MainWindow", "Network Monitor"))
 
+    def updateStatus(self):
+        self.lockStatus.setText("What door")
+               
+
+
     def changeStatus(self):
-            global Count
-            if Count == 0:
-                    self.lockStatus.setText("Door Locked")
-                    Count=1
-            elif Count ==1:
-                    self.lockStatus.setText("Door Unlocked")
-                    Count=0
+            f = open('statuses.json' , 'r')
+            data = json.load(f)
+            status = data["lock"]["locked"]
+            f.close()
+            dictionary_lock ={
+    "name": "Lock Information",
+    "description": "Information on the current status of the lock/homelockOS",
+    "version": "0.0.0",
+    "private": 1,
+    "author": "Anonymous",
+    "contributors": [ "Someone" ],
+    "lock": {
+      "locked": 1,
+      "canlock": 0
+    }
+
+}
+            dictionary_unlock ={
+    "name": "Lock Information",
+    "description": "Information on the current status of the lock/homelockOS",
+    "version": "0.0.0",
+    "private": 1,
+    "author": "Anonymous",
+    "contributors": [ "Someone" ],
+    "lock": {
+      "locked": 0,
+      "canlock": 0
+    }
+
+}
+            json_lock = json.dumps(dictionary_lock, indent = 4)
+            json_unlock = json.dumps(dictionary_unlock, indent = 4)
+            if status == 1:
+                    f = open('statuses.json' , 'w')
+                    f.write(json_unlock)
+                    f.close()
+            else:
+                    f = open('statuses.json' , 'w')
+                    f.write(json_lock)
+                    f.close()
+                    
     
     
     def redirect_password(self):
@@ -177,4 +219,5 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+    ui.updateStatus()
     sys.exit(app.exec_())
