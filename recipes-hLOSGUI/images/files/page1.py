@@ -10,7 +10,7 @@
 
 from typing import Counter
 from PyQt5 import QtCore, QtGui, QtWidgets
-from tkinter import messagebox
+## from tkinter import messagebox
 import threading
 import os
 import json

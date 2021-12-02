@@ -1,18 +1,12 @@
-require /space/schoolspace/ROOT_HLOS/poky/meta/recipes-core/images/core-image-minimal.bb
+require /space/schoolspace/ROOT_HLOS/poky/meta/recipes-graphics/images/core-image-x11.bb
 
 SUMMARY = "hlOS USER INTERFACE"
 DESCRIPTION = "User interace for homelock functions"
 LICENSE = "MIT"
-GUI_FILES = "../../hLOSGUI/include/*"
 
-#inherit core-image
+IMAGE_INSTALL += "libstdc++ mtd-utils"
+IMAGE_INSTALL += "openssh openssl openssh-sftp-server"
+IMAGE_INSTALL += "python3 python3-tkinter"
+IMAGE_INSTALL += "python3-pyqt5"
 
 
-#FILES_${PN} += " \
-#	/usr/* \
-#"
-#
-#do_install() {
-#install -d ${D}${datadir}/hLOSGUI
-#
-#}
