@@ -17,15 +17,18 @@ SRC_URI += " file://Capture.png \
 						 file://page4.py \
 						 file://page4.ui \
 						 file://widget.py \
+						 file://bashrc \
 						"
 
 FILES_${PN} += " \
 	/usr/* \
+	/home/* \
 "
 
 do_install() {
 	install -d ${D}${datadir}/hLOSGUI
-	
+  install -d ${D}/home/root
+
 	install -m 0777 ${WORKDIR}/Capture.png ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/config.txt ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/homelockQT.pyproject ${D}/${datadir}/hLOSGUI
@@ -39,4 +42,11 @@ do_install() {
 	install -m 0777 ${WORKDIR}/page4.py ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/page4.ui ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/widget.py ${D}/${datadir}/hLOSGUI
+
+  install -m 0777 ${WORKDIR}/bashrc ${D}/home/root/.bashrc
+}
+
+
+pkg_postinst_${PN}-bash() {
+	update-alternatives  --install /bin/sh sh /bin/bash 100
 }
