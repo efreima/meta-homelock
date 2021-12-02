@@ -157,6 +157,7 @@ class Ui_MainWindow(object):
         self.main.setText(_translate("MainWindow", "Main Menu"))
 
     def goback(self):
+        MainWindow.close()
         os.system("python page1.py")
 
 

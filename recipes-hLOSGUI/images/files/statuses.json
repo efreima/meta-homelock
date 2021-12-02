@@ -8,7 +8,7 @@
         "Someone"
     ],
     "lock": {
-        "locked": 1,
+        "locked": 0,
         "canlock": 0
     }
 }
