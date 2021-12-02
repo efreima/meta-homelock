@@ -106,7 +106,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setMaximumSize(QtCore.QSize(548, 410))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Capture (1).png"))
+        self.label.setPixmap(QtGui.QPixmap("Capture.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 3, 2, 1, 1)
