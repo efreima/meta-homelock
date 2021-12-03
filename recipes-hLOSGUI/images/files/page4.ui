@@ -405,7 +405,7 @@ radius: 1.35, stop: 0 #fff, stop: 1 #bbb
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>Capture.png</pixmap>
+     <pixmap>Capture (1).png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

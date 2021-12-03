@@ -128,7 +128,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(630, 400, 161, 141))
         self.label.setText("")
-        #self.label.setPixmap(QtGui.QPixmap("Capture.png"))
+        #self.label.setPixmap(QtGui.QPixmap("Capture (1).png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.main, 3, 1, 1, 1)
@@ -193,6 +193,7 @@ class Ui_MainWindow(object):
         self.main.setText(_translate("MainWindow", "Main Menu"))
 
     def goback(self):
+        MainWindow.close()
         os.system("python page1.py")
 
 

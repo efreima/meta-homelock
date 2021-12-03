@@ -10,7 +10,7 @@
 
 from typing import Counter
 from PyQt5 import QtCore, QtGui, QtWidgets
-## from tkinter import messagebox
+from tkinter import messagebox
 import threading
 import os
 import json
@@ -20,8 +20,10 @@ def return_pass():
         data = str(data[0])
         return data
 def Start():
+        MainWindow.close()
         os.system("python page2.py")
 def Start2():
+        MainWindow.close()
         os.system("python page3.py") 
 
 Count=0
@@ -135,8 +137,8 @@ class Ui_MainWindow(object):
         self.lockStatus.setText(_translate("MainWindow", " "))
         self.network.setText(_translate("MainWindow", "Network Monitor"))
 
-    def updateStatus(self):
-        self.lockStatus.setText("What door")
+
+            
                
 
 
@@ -194,8 +196,10 @@ class Ui_MainWindow(object):
             
                     if user_pass == return_pass():
                             Start()
+
                     else:
                             self.redirect_password()
+
     def redirect_password2(self):
             import subprocess, os
             #subprocess.Popen(['matchbox-keyboard'])
@@ -219,5 +223,16 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    ui.updateStatus()
+    def updateLabel():
+        f1 = open('statuses.json' , 'r')
+        data1 = json.load(f1)
+        status1 = data1["lock"]["locked"]
+        f1.close()
+        if status1 == 1:
+            ui.lockStatus.setText("Door Locked")
+        else:
+            ui.lockStatus.setText("Door Unlocked")
+    timer = QtCore.QTimer()
+    timer.timeout.connect(updateLabel)
+    timer.start(1000)
     sys.exit(app.exec_())
