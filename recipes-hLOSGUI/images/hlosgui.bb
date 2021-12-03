@@ -18,11 +18,13 @@ SRC_URI += " file://Capture.png \
 						 file://page4.ui \
 						 file://widget.py \
 						 file://bashrc \
+						 file://profile \
 						"
 
 FILES_${PN} += " \
 	/usr/* \
 	/home/* \
+	/etc/* \
 "
 
 do_install() {
@@ -42,8 +44,9 @@ do_install() {
 	install -m 0777 ${WORKDIR}/page4.py ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/page4.ui ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/widget.py ${D}/${datadir}/hLOSGUI
-
+	
   install -m 0777 ${WORKDIR}/bashrc ${D}/home/root/.bashrc
+	install -m 0777 ${WORKDIR}/profile ${D}/home/root/.profile
 }
 
 
