@@ -17,6 +17,7 @@ SRC_URI += " file://Capture.png \
 						 file://page4.py \
 						 file://page4.ui \
 						 file://widget.py \
+						 file://statuses.json \
 						 file://bashrc \
 						"
 
@@ -41,7 +42,8 @@ do_install() {
 	install -m 0777 ${WORKDIR}/page3.ui ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/page4.py ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/page4.ui ${D}/${datadir}/hLOSGUI
-	install -m 0777 ${WORKDIR}/widget.py ${D}/${datadir}/hLOSGUI
+	install -m 0777 ${WORKDIR}/widget.py ${D}/${datadir}/hLOSGUIi
+	install -m 0777 ${WORKDIR}/statuses.json ${D}/${datadir}/hLOSGUI
 
   install -m 0777 ${WORKDIR}/bashrc ${D}/home/root/.bashrc
 }
