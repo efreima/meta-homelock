@@ -10,21 +10,20 @@
 
 from typing import Counter
 from PyQt5 import QtCore, QtGui, QtWidgets
-from tkinter import messagebox
 import threading
 import os
 import json
 def return_pass():
-    with open('config.txt', 'r') as reader:
+    with open('/usr/share/hLOSGUI/config.txt', 'r') as reader:
         data = reader.readlines()
         data = str(data[0])
         return data
 def Start():
         MainWindow.close()
-        os.system("python3 page2.py")
+        os.system("python3 /usr/share/hLOSGUI/page2.py")
 def Start2():
         MainWindow.close()
-        os.system("python3 page3.py") 
+        os.system("python3 /usr/share/hLOSGUI/page3.py") 
 
 Count=0
 
@@ -108,7 +107,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setMaximumSize(QtCore.QSize(548, 410))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Capture.png"))
+        self.label.setPixmap(QtGui.QPixmap("/usr/share/hLOSGUI/Capture.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 3, 2, 1, 1)
@@ -143,7 +142,7 @@ class Ui_MainWindow(object):
 
 
     def changeStatus(self):
-            f = open('statuses.json' , 'r')
+            f = open('/usr/share/hLOSGUI/statuses.json' , 'r')
             data = json.load(f)
             status = data["lock"]["locked"]
             f.close()
@@ -176,11 +175,11 @@ class Ui_MainWindow(object):
             json_lock = json.dumps(dictionary_lock, indent = 4)
             json_unlock = json.dumps(dictionary_unlock, indent = 4)
             if status == 1:
-                    f = open('statuses.json' , 'w')
+                    f = open('/usr/share/hLOSGUI/statuses.json' , 'w')
                     f.write(json_unlock)
                     f.close()
             else:
-                    f = open('statuses.json' , 'w')
+                    f = open('/usr/share/hLOSGUI/statuses.json' , 'w')
                     f.write(json_lock)
                     f.close()
                     
@@ -224,7 +223,7 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     def updateLabel():
-        f1 = open('statuses.json' , 'r')
+        f1 = open('/usr/share/hLOSGUI/statuses.json' , 'r')
         data1 = json.load(f1)
         status1 = data1["lock"]["locked"]
         f1.close()

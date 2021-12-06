@@ -1,10 +1,11 @@
 [Unit]
 Description = "GUI meant to control door, network, camera"
-After = network.target
+After = graphical.target
 
 [Service]
 Type = simple
-ExecStart = python3 /usr/share/hLOSGUI/page1.py
+Environment="DISPLAY=:0.0"
+ExecStart = env -i DISPLAY=:0.0 sudo /usr/bin/python3 /usr/share/hLOSGUI/page1.py
 User = root
 Group = root
 Restart = on-failure
@@ -13,4 +14,4 @@ RestartSec = 5
 TimeoutStartSec = infinity
 
 [Install]
-WantedBy = multi-user.target
+WantedBy = graphical.target

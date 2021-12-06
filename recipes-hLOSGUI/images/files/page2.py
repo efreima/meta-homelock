@@ -104,7 +104,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setMaximumSize(QtCore.QSize(548, 410))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Capture.png"))
+        self.label.setPixmap(QtGui.QPixmap("/usr/share/hLOSGUI/Capture.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 3, 3, 1, 2)
@@ -194,7 +194,7 @@ class Ui_MainWindow(object):
 
     def goback(self):
         MainWindow.close()
-        os.system("python3 page1.py")
+        os.system("python3 /usr/share/hLOSGUI/page1.py")
 
 
 if __name__ == "__main__":
