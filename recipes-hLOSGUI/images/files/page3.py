@@ -158,7 +158,7 @@ class Ui_MainWindow(object):
 
     def goback(self):
         MainWindow.close()
-        os.system("python page1.py")
+        os.system("python3 page1.py")
 
 
 if __name__ == "__main__":

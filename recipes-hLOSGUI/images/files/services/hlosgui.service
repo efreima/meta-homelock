@@ -1,0 +1,16 @@
+[Unit]
+Description = "GUI meant to control door, network, camera"
+After = network.target
+
+[Service]
+Type = simple
+ExecStart = python3 /usr/share/hLOSGUI/page1.py
+User = root
+Group = root
+Restart = on-failure
+SyslogIdentifier = hlosgui-service.log
+RestartSec = 5
+TimeoutStartSec = infinity
+
+[Install]
+WantedBy = multi-user.target

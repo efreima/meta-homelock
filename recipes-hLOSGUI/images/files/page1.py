@@ -21,10 +21,10 @@ def return_pass():
         return data
 def Start():
         MainWindow.close()
-        os.system("python page2.py")
+        os.system("python3 page2.py")
 def Start2():
         MainWindow.close()
-        os.system("python page3.py") 
+        os.system("python3 page3.py") 
 
 Count=0
 
