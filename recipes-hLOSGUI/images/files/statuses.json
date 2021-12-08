@@ -4,11 +4,6 @@
     "version": "0.0.0",
     "private": 1,
     "author": "Anonymous",
-    "contributors": [
-        "Someone"
-    ],
-    "lock": {
-        "locked": 0,
-        "canlock": 0
-    }
+    "locked": 0,
+    "canlock": 0
 }
