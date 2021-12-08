@@ -34,59 +34,14 @@ class Ui_MainWindow(object):
         MainWindow.showMaximized()
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.lockStatus = QtWidgets.QLabel(self.centralwidget)
-        self.lockStatus.setGeometry(QtCore.QRect(340, 210, 101, 41))
-        font = QtGui.QFont()
-        font.setFamily("Viner Hand ITC")
-        font.setPointSize(10)
-        self.lockStatus.setFont(font)
-        self.lockStatus.setObjectName("lockStatus")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
-        self.door = QtWidgets.QPushButton(self.centralwidget)
-        self.door.setStyleSheet("QPushButton {\n"
-"color: #333;\n"
-"background-color: rgb(0, 255, 0);\n"
-"border: 2px solid #555;\n"
-"border-radius: 20px;\n"
-"border-style: outset;\n"
-"padding: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(\n"
-"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #fff, stop: 1 #bbb\n"
-");\n"
-"}")
-        self.door.setObjectName("door")
-        self.gridLayout.addWidget(self.door, 1, 1, 1, 1)
-        self.device = QtWidgets.QPushButton(self.centralwidget)
-        self.device.setStyleSheet("QPushButton {\n"
-"color: #333;\n"
-"background-color: rgb(0, 255, 0);\n"
-"border: 2px solid #555;\n"
-"border-radius: 20px;\n"
-"border-style: outset;\n"
-"padding: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(\n"
-"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #fff, stop: 1 #bbb\n"
-");\n"
-"}")
-        self.device.setObjectName("device")
-        self.gridLayout.addWidget(self.device, 4, 0, 1, 1)
-        self.lockStatus = QtWidgets.QLabel(self.centralwidget)
-        font = QtGui.QFont()
-        font.setFamily("Viner Hand ITC")
-        font.setPointSize(10)
-        self.lockStatus.setFont(font)
-        self.lockStatus.setObjectName("lockStatus")
-        self.gridLayout.addWidget(self.lockStatus, 0, 1, 1, 1, QtCore.Qt.AlignHCenter)
         self.network = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.network.sizePolicy().hasHeightForWidth())
+        self.network.setSizePolicy(sizePolicy)
         self.network.setStyleSheet("QPushButton {\n"
 "color: #333;\n"
 "background-color: rgb(0, 255, 0);\n"
@@ -103,6 +58,67 @@ class Ui_MainWindow(object):
 ");\n"
 "}")
         self.network.setObjectName("network")
+        self.gridLayout.addWidget(self.network, 3, 1, 1, 1)
+        self.lockStatus = QtWidgets.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Viner Hand ITC")
+        font.setPointSize(10)
+        self.lockStatus.setFont(font)
+        self.lockStatus.setObjectName("lockStatus")
+        self.gridLayout.addWidget(self.lockStatus, 0, 1, 1, 1, QtCore.Qt.AlignHCenter)
+        self.device = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.device.sizePolicy().hasHeightForWidth())
+        self.device.setSizePolicy(sizePolicy)
+        self.device.setStyleSheet("QPushButton {\n"
+"color: #333;\n"
+"background-color: rgb(0, 255, 0);\n"
+"border: 2px solid #555;\n"
+"border-radius: 20px;\n"
+"border-style: outset;\n"
+"padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background: qradialgradient(\n"
+"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 #fff, stop: 1 #bbb\n"
+");\n"
+"}")
+        self.device.setObjectName("device")
+        self.gridLayout.addWidget(self.device, 4, 1, 1, 1)
+        self.door = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.door.sizePolicy().hasHeightForWidth())
+        self.door.setSizePolicy(sizePolicy)
+        self.door.setStyleSheet("QPushButton {\n"
+"color: #333;\n"
+"background-color: rgb(0, 255, 0);\n"
+"border: 2px solid #555;\n"
+"border-radius: 20px;\n"
+"border-style: outset;\n"
+"padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background: qradialgradient(\n"
+"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 #fff, stop: 1 #bbb\n"
+");\n"
+"}")
+<<<<<<< HEAD
+        self.door.setObjectName("door")
+        self.gridLayout.addWidget(self.door, 1, 1, 2, 1)
+        spacerItem = QtWidgets.QSpacerItem(250, 50, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem, 1, 0, 1, 1)
+        spacerItem1 = QtWidgets.QSpacerItem(250, 50, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem1, 1, 2, 1, 1)
+=======
+        self.network.setObjectName("network")
         self.gridLayout.addWidget(self.network, 3, 0, 1, 1)
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setMaximumSize(QtCore.QSize(548, 410))
@@ -111,9 +127,10 @@ class Ui_MainWindow(object):
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 3, 2, 1, 1)
+>>>>>>> c0df7f360d1f85c818a8564e48d36c747b26db67
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1837, 39))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1756, 39))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -122,23 +139,20 @@ class Ui_MainWindow(object):
         self.door.clicked.connect(self.changeStatus)
         self.device.clicked.connect(self.redirect_password)
         self.network.clicked.connect(self.redirect_password2)
-        
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
 
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.door.setText(_translate("MainWindow", "Press to Lock/Unlock"))
-        self.device.setText(_translate("MainWindow", "Device Control"))
-        self.lockStatus.setText(_translate("MainWindow", " "))
         self.network.setText(_translate("MainWindow", "Network Monitor"))
+        self.lockStatus.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:14pt;\"> </span></p></body></html>"))
+        self.device.setText(_translate("MainWindow", "Device Control"))
+        self.door.setText(_translate("MainWindow", "Press to Lock/Unlock"))
 
-
-            
-               
 
 
     def changeStatus(self):
@@ -215,6 +229,7 @@ class Ui_MainWindow(object):
 
 
 
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -228,9 +243,9 @@ if __name__ == "__main__":
         status1 = data1["lock"]["locked"]
         f1.close()
         if status1 == 1:
-            ui.lockStatus.setText("Door Locked")
+            ui.lockStatus.setText("<html><head/><body><p><span style=\" font-size:14pt;\"> Door Locked </span></p></body></html>")
         else:
-            ui.lockStatus.setText("Door Unlocked")
+            ui.lockStatus.setText("<html><head/><body><p><span style=\" font-size:14pt;\"> Door Unlocked </span></p></body></html>")
     timer = QtCore.QTimer()
     timer.timeout.connect(updateLabel)
     timer.start(1000)

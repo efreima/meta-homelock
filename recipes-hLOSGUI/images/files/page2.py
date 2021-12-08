@@ -194,7 +194,11 @@ class Ui_MainWindow(object):
 
     def goback(self):
         MainWindow.close()
+<<<<<<< HEAD
+        os.system("python3 page1.py")
+=======
         os.system("python3 /usr/share/hLOSGUI/page1.py")
+>>>>>>> c0df7f360d1f85c818a8564e48d36c747b26db67
 
 
 if __name__ == "__main__":
