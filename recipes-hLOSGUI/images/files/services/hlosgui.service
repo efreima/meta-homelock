@@ -1,0 +1,17 @@
+[Unit]
+Description = "GUI meant to control door, network, camera"
+After = graphical.target
+
+[Service]
+Type = simple
+Environment="DISPLAY=:0.0"
+ExecStart = env -i DISPLAY=:0.0 sudo /usr/bin/python3 /usr/share/hLOSGUI/page1.py
+User = root
+Group = root
+Restart = on-failure
+SyslogIdentifier = hlosgui-service.log
+RestartSec = 5
+TimeoutStartSec = infinity
+
+[Install]
+WantedBy = graphical.target

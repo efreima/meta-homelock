@@ -20,7 +20,13 @@ SRC_URI += " file://Capture.png \
 						 file://statuses.json \
 						 file://bashrc \
 						 file://profile \
+						 file://statuses.json \
+						 file://services/hlosgui.service \
 						"
+
+inherit systemd
+SYSTEMD_AUTO_ENABLE = "enable"
+SYSTEMD_SERVICE_${PN} = "hlosgui.service"
 
 FILES_${PN} += " \
 	/usr/* \
@@ -31,6 +37,7 @@ FILES_${PN} += " \
 do_install() {
 	install -d ${D}${datadir}/hLOSGUI
   install -d ${D}/home/root
+	install -d ${D}/etc/systemd/system
 
 	install -m 0777 ${WORKDIR}/Capture.png ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/config.txt ${D}/${datadir}/hLOSGUI
@@ -50,10 +57,13 @@ do_install() {
 
 =======
 	install -m 0777 ${WORKDIR}/widget.py ${D}/${datadir}/hLOSGUI
+	install -m 0777 ${WORKDIR}/statuses.json ${D}/${datadir}/hLOSGUI
 	
 >>>>>>> 121b06eb79761ad0cde44b1e526214a39b39937d
   install -m 0777 ${WORKDIR}/bashrc ${D}/home/root/.bashrc
 	install -m 0777 ${WORKDIR}/profile ${D}/home/root/.profile
+
+	install -m 0777 ${WORKDIR}/services/hlosgui.service ${D}/etc/systemd/system
 }
 
 
