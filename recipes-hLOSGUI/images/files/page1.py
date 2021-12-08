@@ -110,14 +110,6 @@ class Ui_MainWindow(object):
 "radius: 1.35, stop: 0 #fff, stop: 1 #bbb\n"
 ");\n"
 "}")
-<<<<<<< HEAD
-        self.door.setObjectName("door")
-        self.gridLayout.addWidget(self.door, 1, 1, 2, 1)
-        spacerItem = QtWidgets.QSpacerItem(250, 50, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem, 1, 0, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(250, 50, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem1, 1, 2, 1, 1)
-=======
         self.network.setObjectName("network")
         self.gridLayout.addWidget(self.network, 3, 0, 1, 1)
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -127,7 +119,6 @@ class Ui_MainWindow(object):
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 3, 2, 1, 1)
->>>>>>> c0df7f360d1f85c818a8564e48d36c747b26db67
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1756, 39))
