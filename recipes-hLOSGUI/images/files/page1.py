@@ -238,7 +238,7 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     def updateLabel():
-        f1 = open('statuses.json' , 'r')
+        f1 = open('/usr/share/hLOSGUI/statuses.json' , 'r')
         data1 = json.load(f1)
         status1 = data1['locked']
         f1.close()
