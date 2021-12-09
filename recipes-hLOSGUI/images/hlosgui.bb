@@ -22,6 +22,7 @@ SRC_URI += " file://Capture.png \
 						 file://profile \
 						 file://statuses.json \
 						 file://services/hlosgui.service \
+						 file://config/door-server.txt \
 						"
 
 inherit systemd
@@ -36,6 +37,7 @@ FILES_${PN} += " \
 
 do_install() {
 	install -d ${D}${datadir}/hLOSGUI
+	install -d ${D}${datadir}/hLOSGUI/config
   install -d ${D}/home/root
 	install -d ${D}/etc/systemd/system
 	install -d ${D}${datadir}/apache2/default-site/htdocs
@@ -52,6 +54,7 @@ do_install() {
 	install -m 0777 ${WORKDIR}/page3.ui ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/page4.py ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/page4.ui ${D}/${datadir}/hLOSGUI
+	install -m 0777 ${WORKDIR}/config/door-server.txt ${D}/${datadir}/hLOSGUI/config
 
 	install -m 0777 ${WORKDIR}/widget.py ${D}/${datadir}/hLOSGUI
 	install -m 0777 ${WORKDIR}/statuses.json ${D}/${datadir}/hLOSGUI
