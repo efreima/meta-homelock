@@ -147,7 +147,7 @@ class Ui_MainWindow(object):
     def changeStatus(self):
             f = open('/usr/share/hLOSGUI/statuses.json' , 'r')
             data = json.load(f)
-            status = data["lock"]["locked"]
+            status = data["locked"]
             f.close()
             dictionary_lock ={
     "name": "Lock Information",
@@ -155,12 +155,8 @@ class Ui_MainWindow(object):
     "version": "0.0.0",
     "private": 1,
     "author": "Anonymous",
-    "contributors": [ "Someone" ],
-    "lock": {
-      "locked": 1,
-      "canlock": 0
-    }
-
+    "locked": 1,
+    "canlock": 0
 }
             dictionary_unlock ={
     "name": "Lock Information",
@@ -168,12 +164,8 @@ class Ui_MainWindow(object):
     "version": "0.0.0",
     "private": 1,
     "author": "Anonymous",
-    "contributors": [ "Someone" ],
-    "lock": {
-      "locked": 0,
-      "canlock": 0
-    }
-
+    "locked": 0,
+    "canlock": 0
 }
             json_lock = json.dumps(dictionary_lock, indent = 4)
             json_unlock = json.dumps(dictionary_unlock, indent = 4)
@@ -229,7 +221,7 @@ if __name__ == "__main__":
     def updateLabel():
         f1 = open('/usr/share/hLOSGUI/statuses.json' , 'r')
         data1 = json.load(f1)
-        status1 = data1["lock"]["locked"]
+        status1 = data1["locked"]
         f1.close()
         if status1 == 1:
             ui.lockStatus.setText("<html><head/><body><p><span style=\" font-size:14pt;\"> Door Locked </span></p></body></html>")
