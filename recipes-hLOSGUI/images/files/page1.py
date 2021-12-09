@@ -146,6 +146,7 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.door.clicked.connect(self.changeStatus)
         self.device.clicked.connect(self.redirect_password)
         self.network.clicked.connect(self.redirect_password2)
         self.pushButton.clicked.connect(self.configure)
@@ -175,7 +176,7 @@ class Ui_MainWindow(object):
             dictionary_unlock ={
     "locked": 0,
     "canlock": 0
-}         
+}       
             json_lock = json.dumps(dictionary_lock, indent = 4)
             json_unlock = json.dumps(dictionary_unlock, indent = 4)
             if status == 1:
@@ -216,6 +217,7 @@ class Ui_MainWindow(object):
                     else:
                             self.redirect_password()
 
+
     def configure(self):
             import subprocess, os
             text, ok = QtWidgets.QInputDialog.getText(None, "Configure", "Door Lock IP Address: ",
@@ -227,6 +229,7 @@ class Ui_MainWindow(object):
 
 
 
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -234,4 +237,16 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+    def updateLabel():
+        f1 = open('statuses.json' , 'r')
+        data1 = json.load(f1)
+        status1 = data1['locked']
+        f1.close()
+        if status1 == 1:
+            ui.lockStatus.setText("<html><head/><body><p><span style=\" font-size:14pt;\"> Door Locked </span></p></body></html>")
+        else:
+            ui.lockStatus.setText("<html><head/><body><p><span style=\" font-size:14pt;\"> Door Unlocked </span></p></body></html>")
+    timer = QtCore.QTimer()
+    timer.timeout.connect(updateLabel)
+    timer.start(1000)
     sys.exit(app.exec_())
