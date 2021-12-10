@@ -14,6 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import threading
 import os
 import json
+import time
 
 def return_pass():
     with open('/usr/share/hLOSGUI/config.txt', 'r') as reader:
@@ -65,13 +66,9 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.network, 3, 1, 1, 1)
         spacerItem = QtWidgets.QSpacerItem(250, 50, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem, 1, 0, 1, 1)
-        self.lockStatus = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Viner Hand ITC")
         font.setPointSize(10)
-        self.lockStatus.setFont(font)
-        self.lockStatus.setObjectName("lockStatus")
-        self.gridLayout.addWidget(self.lockStatus, 0, 1, 1, 1, QtCore.Qt.AlignHCenter)
         self.device = QtWidgets.QPushButton(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -105,6 +102,8 @@ class Ui_MainWindow(object):
         self.door.setSizePolicy(sizePolicy)
         self.door.setStyleSheet("QPushButton {\n"
 "color: #333;\n"
+"font-size: 44px;\n"
+"font-style: bold;\n"
 "background-color: rgb(0, 255, 0);\n"
 "border: 2px solid #555;\n"
 "border-radius: 20px;\n"
@@ -158,9 +157,8 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.network.setText(_translate("MainWindow", "Network Monitor"))
-        self.lockStatus.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:14pt;\"> </span></p></body></html>"))
         self.device.setText(_translate("MainWindow", "Device Control"))
-        self.door.setText(_translate("MainWindow", "Press to Lock/Unlock"))
+        self.door.setText(_translate("MainWindow", " "))
         self.pushButton.setText(_translate("MainWindow", "Configure"))
 
 
@@ -243,10 +241,12 @@ if __name__ == "__main__":
         status1 = data1['locked']
         f1.close()
         if status1 == 1:
-            ui.lockStatus.setText("<html><head/><body><p><span style=\" font-size:14pt;\"> Door Locked </span></p></body></html>")
+            ui.door.setText("Unlock Door")
+
         else:
-            ui.lockStatus.setText("<html><head/><body><p><span style=\" font-size:14pt;\"> Door Unlocked </span></p></body></html>")
+            ui.door.setText("Lock Door")
+
     timer = QtCore.QTimer()
     timer.timeout.connect(updateLabel)
-    timer.start(1000)
+    timer.start(500)
     sys.exit(app.exec_())
